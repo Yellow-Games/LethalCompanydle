@@ -174,7 +174,7 @@ const creatures = [
     },
 
     baboonHawk = {
-        names: ["baboon hawk", "opps", "ababa"],
+        names: ["baboon hawk", "opps", "ababa", "ops"],
         health: 4,
         power_level: 0.5,
         max_spawn: 15,
