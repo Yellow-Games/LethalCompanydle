@@ -34,7 +34,7 @@ const creatures = [
     },
 
     spider = {
-        names: ["bunker spider"],
+        names: ["bunker spider", "spunker bider"],
         health: 5,
         power_level: 2,
         max_spawn: 1,
@@ -74,7 +74,7 @@ const creatures = [
     },
 
     coil = {
-        names: ["coilhead"],
+        names: ["coilhead", "coil head"],
         health: Number.NaN,
         power_level: 1,
         max_spawn: 5,
@@ -94,7 +94,7 @@ const creatures = [
     },
 
     lootBug = {
-        names: ["hoarding bug", "loot bug"],
+        names: ["hoarding bug", "loot bug", "lootbug", "boot lug", "bootlug"],
         health: 3,
         power_level: 1,
         max_spawn: 8,
@@ -144,7 +144,7 @@ const creatures = [
     },
 
     nutcracker = {
-        names: ["nutcracker", "toy soilder"],
+        names: ["nutcracker", "toy soilder", "crutknacker", "crut knacker"],
         health: 5,
         power_level: 1,
         max_spawn: 10,
@@ -154,7 +154,7 @@ const creatures = [
     },
     
     spore = {
-        names: ["spore lizard"],
+        names: ["spore lizard", "lore spizard"],
         health: Number.NaN,
         power_level: 1,
         max_spawn: 2,
@@ -244,7 +244,7 @@ const creatures = [
     },
 
     fox = {
-        names: ["kidknapper fox"],
+        names: ["kidnapper fox"],
         health: 7,
         power_level: 1,
         max_spawn: 1,
@@ -306,7 +306,7 @@ const creatures = [
     },
 
     oldBird = {
-        names: ["radmech", "old bird"],
+        names: ["radmech", "old bird", "bold ird"],
         health: Number.NaN,
         power_level: 3,
         max_spawn: 20,
@@ -316,7 +316,7 @@ const creatures = [
     },
 
     snare = {
-        names: ["snare flea", "head worm"],
+        names: ["snare flea", "head worm", "flare snea"],
         health: 3,
         power_level: 1,
         max_spawn: 4,
@@ -330,6 +330,7 @@ const creatures = [
 let goal = creatures[Math.floor(Math.random() * creatures.length)];
 let pastGuesses = [];
 let credits = 60;
+let win = false;
 
 document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("user-in").focus();
@@ -347,8 +348,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (userInput.value.toLowerCase() === "help") {
                 displayHelpMessage();
             } else if (userInput.value.toLowerCase() === "again" || userInput.value.toLowerCase() === "try again") {
-                if (credits === 0) {
+                if (credits === 0 || win) {
                     pastGuesses = [];
+                    win = false;
                     updateCreditCount(60);
                     goal = creatures[Math.floor(Math.random() * creatures.length)];
                     clearDisplays();
@@ -364,6 +366,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     if (goal.names.includes(guess.name)) {
                         displayMessage("Congratulations! You got it!");
                         userInput.value = "";
+                        win = true;
                         return;
                     }
 
