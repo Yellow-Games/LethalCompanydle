@@ -23,16 +23,6 @@ const creatures = [
         location: "indoor"
     },
 
-    bracken = { 
-        names: ["bracken", "flowerman"],
-        health: 5,
-        power_level: 3,
-        max_spawn: 1,
-        favorite_moon: "vow",
-        state: 2,
-        location: "indoor"
-    },
-
     spider = {
         names: ["bunker spider", "spunker bider"],
         health: 5,
@@ -293,7 +283,17 @@ const creatures = [
         location: "outdoor"
     },
 
-    // AT BOTTOM TO GIVE PRIORITY TO BEES, WORM AND SAPSUCKER
+    // AT BOTTOM TO GIVE PRIORITY TO BEES, WORM, MANEATER AND SAPSUCKER
+
+    bracken = { 
+        names: ["bracken", "flowerman"],
+        health: 5,
+        power_level: 3,
+        max_spawn: 1,
+        favorite_moon: "vow",
+        state: 2,
+        location: "indoor"
+    },
 
     butlerBees = {
         names: ["butler bees", "mask hornets"],
