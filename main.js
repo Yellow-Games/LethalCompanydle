@@ -59,7 +59,7 @@ const creatures = [
         power_level: 2,
         max_spawn: 1,
         favorite_moon: "adamance",
-        state: 0,
+        state: 1,
         location: "indoor"
     },
 
