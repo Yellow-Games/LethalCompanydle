@@ -134,7 +134,7 @@ const creatures = [
     },
 
     masked = {
-        names: ["masked"],
+        names: ["masked", "mimic"],
         health: 4,
         power_level: 1,
         max_spawn: 10,
@@ -199,7 +199,7 @@ const creatures = [
         power_level: 2,
         max_spawn: 8,
         favorite_moon: "titan",
-        state: 1,
+        state: 2,
         location: "outdoor"
     },
 
@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     displayCreatureData(guess)
 
                     if (goal.names.includes(guess.name)) {
-                        displayMessage("Congradulations! You got it!");
+                        displayMessage("Congratulations! You got it!");
                         userInput.value = "";
                         return;
                     }
