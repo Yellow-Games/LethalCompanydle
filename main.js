@@ -519,7 +519,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     pastGuesses = [];
                     win = false;
                     updateCreditCount(60);
-                    goal = creatures[Math.floor(Math.random() * creatures.length)];
+                    goal = "";
                     clearDisplays();
                 }
             } else {
