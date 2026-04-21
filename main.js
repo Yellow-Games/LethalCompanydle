@@ -534,7 +534,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 }
 
-                if (guess !== null && goal.names.includes(guess.names.replaceAll("-", "~"))) {
+                if (guess !== null && goal.names.includes(guess.names.replaceAll("-", "~").replaceAll(" ", "~"))) {
                     displayMessage("Congratulations! You got it!");
                     pastGuesses = [];
                     userInput.value = "";
@@ -820,7 +820,7 @@ function displayCreatureData(guess) {
 
     const name = document.createElement("span");
     name.textContent = `${guess.names.toUpperCase()}: `;
-    if (goal.names.includes(guess.names)) {
+    if (goal.names.includes(guess.names.replaceAll(" ", "~"))) {
         name.classList.add("correct");
     }
 
