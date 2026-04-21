@@ -500,12 +500,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             if (userInput.value.toLowerCase() === "help") {
                 displayHelpMessage();
-            } else if ("moons".search(userInput.value.toLowerCase()) === 0) {
+            } else if (gameMode === "" && "moons".search(userInput.value.toLowerCase()) === 0) {
 
                 gameMode = "m";
                 goal = moons[Math.floor(Math.random() * moons.length)];
 
-            } else if ("creatures".search(userInput.value.toLowerCase()) === 0) {
+            } else if (gameMode === "" && "creatures".search(userInput.value.toLowerCase()) === 0) {
 
                 gameMode = "c";
                 goal = creatures[Math.floor(Math.random() * creatures.length)];
@@ -520,6 +520,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     win = false;
                     updateCreditCount(60);
                     goal = "";
+                    gameMode = "";
                     clearDisplays();
                 }
             } else {
