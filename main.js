@@ -134,7 +134,7 @@ const creatures = [
     },
 
     nutcracker = {
-        names: ["nutcracker", "toy soilder", "crutknacker", "crut knacker"],
+        names: ["nutcracker", "toy soilder", "crutknacker", "crut knacker", "crutnacker", "crut nacker],
         health: 5,
         power_level: 1,
         max_spawn: 10,
