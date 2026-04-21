@@ -535,11 +535,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 if (guess !== null && goal.names.includes(guess.names)) {
                     displayMessage("Congratulations! You got it!");
+                    pastGuesses = [];
                     userInput.value = "";
                     win = true;
+                    goal = "";
+                    gameMode = "";
                     return;
                 } else if (credits === 0) {
-                    displayMessage(`Sorry, the correct answer was ${goal.names[0].toUpperCase()}`)
+                    displayMessage(`Sorry, the correct answer was ${goal.names[0].toUpperCase()}`);
+                    goal = "";
+                    gameMode = "";
+                    pastGuesses = [];
+                    userInput.value = "";
                 }
 
             }
