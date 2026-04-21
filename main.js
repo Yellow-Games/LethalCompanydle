@@ -134,7 +134,7 @@ const creatures = [
     },
 
     nutcracker = {
-        names: ["nutcracker", "toy soilder", "crutnacker", "crut nacker"],
+        names: ["nutcracker", "toy soilder", "crutknacker", "crut knacker"],
         health: 5,
         power_level: 1,
         max_spawn: 10,
@@ -327,7 +327,156 @@ const creatures = [
 ]
 
 
-let goal = creatures[Math.floor(Math.random() * creatures.length)];
+const moons = [
+
+    experimentation = {
+        names: ["41 experimentation"],
+        nighttime: 8,
+        indoor: 4,
+        indoor_enemy: "bunker spider",
+        outdoor_enemy: "eyeless dog",
+        scrap: "v-type",
+        interior: "factory",
+        size: 1.00
+    },
+
+    assurance = {
+        names: ["220 assurance"],
+        nighttime: 6,
+        indoor: 8,
+        indoor_enemy: "snare flea",
+        outdoor_enemy: "earth leviathan",
+        scrap: "bottles",
+        interior: "factory",
+        size: 1.00
+    },
+
+    vow = {
+        names: ["56 vow"],
+        nighttime: 6,
+        indoor: 7,
+        indoor_enemy: "bracken",
+        outdoor_enemy: "forest keeper",
+        scrap: "egg beater",
+        interior: "factory",
+        size: 1.15
+    },
+
+    march = {
+        names: ["61 march"],
+        nighttime: 12,
+        indoor: 14,
+        indoor_enemy: "thumper",
+        outdoor_enemy: "forest keeper",
+        scrap: "big bolt",
+        interior: "factory",
+        size: 1.75
+    },
+
+    offense = {
+        names: ["21 offense"],
+        nighttime: 8,
+        indoor: 12,
+        indoor_enemy: "thumper",
+        outdoor_enemy: "eyeless dog",
+        scrap: "large axle",
+        interior: "mineshaft",
+        size: 1.25
+    },
+
+    adamance = {
+        names: ["20 adamance"],
+        nighttime: 11,
+        indoor: 13,
+        indoor_enemy: "cadaver growths",
+        outdoor_enemy: "baboon hawk",
+        scrap: "bottles",
+        interior: "factory",
+        size: 1.18
+    },
+
+    rend = {
+        names: ["85 rend"],
+        nighttime: 6,
+        indoor: 10,
+        indoor_enemy: "nutcracker",
+        outdoor_enemy: "eyeless dog",
+        scrap: "easter egg",
+        interior: "mansion",
+        size: 1.80
+    },
+
+    dine = {
+        names: ["7 dine"],
+        nighttime: 9,
+        indoor: 10,
+        indoor_enemy: "butler",
+        outdoor_enemy: "forest keeper",
+        scrap: "foot",
+        interior: "mansion",
+        size: 1.80
+    },
+
+    titan = {
+        names: ["8 titan"],
+        nighttime: 7,
+        indoor: 18,
+        indoor_enemy: "jester",
+        outdoor_enemy: "eyeless dog",
+        scrap: "big bolt",
+        interior: "factory",
+        size: 2.20
+    },
+
+    artifice = {
+        names: ["68 artifice"],
+        nighttime: 13,
+        indoor: 13,
+        indoor_enemy: "bunker spider",
+        outdoor_enemy: "old bird",
+        scrap: "robot toy",
+        interior: "mineshaft",
+        size: 1.80
+    },
+
+    embrion = {
+        names: ["5 embrion"],
+        nighttime: 70,
+        indoor: 8,
+        indoor_enemy: "hoarding bug",
+        outdoor_enemy: "old bird",
+        scrap: "tattered metal sheet",
+        interior: "factory",
+        size: 1.10
+    },
+
+    gordian = {
+        names: ["71 gordian", "company"],
+        nighttime: 0,
+        indoor: 0,
+        indoor_enemy: "n/a",
+        outdoor_enemy: "n/a",
+        scrap: "n/a",
+        interior: "n/a",
+        size: 1.00
+    },
+
+    liquidation = {
+        names: ["44 liquidation"],
+        nighttime: 13,
+        indoor: 13,
+        indoor_enemy: "n/a",
+        outdoor_enemy: "n/a",
+        scrap: "n/a",
+        interior: "mansion",
+        size: 1.60
+    },
+
+];
+
+
+let gameMode = "";
+let goal = null;
 let pastGuesses = [];
 let credits = 60;
 let win = false;
@@ -345,9 +494,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (event.key == "Enter") {
 
+            if (document.getElementById("intro") !== null) {
+                clearDisplays()
+            }
+
             if (userInput.value.toLowerCase() === "help") {
                 displayHelpMessage();
-            } else if (userInput.value.toLowerCase() === "again" || userInput.value.toLowerCase() === "try again") {
+            } else if ("moons".search(userInput.value.toLowerCase()) === 0) {
+
+                gameMode = "m";
+                goal = moons[Math.floor(Math.random() * moons.length)];
+
+            } else if ("creatures".search(userInput.value.toLowerCase()) === 0) {
+
+                gameMode = "c";
+                goal = creatures[Math.floor(Math.random() * creatures.length)];
+
+            } /*else if ("scraps".search(userInput.value.toLowerCase()) === 0 || "items".search(userInput.value.toLowerCase()) === 0) {
+
+                gameMode = "s";
+
+            }*/ else if (userInput.value.toLowerCase() === "again" || userInput.value.toLowerCase() === "try again") {
                 if (credits === 0 || win) {
                     pastGuesses = [];
                     win = false;
@@ -361,25 +528,22 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 if (credits > 0 && guess !== null) {
                     updateCreditCount(credits - 10);
-                    displayCreatureData(guess)
-
-                    if (goal.names.includes(guess.name)) {
-                        displayMessage("Congratulations! You got it!");
-                        userInput.value = "";
-                        win = true;
-                        return;
-                    }
-
-                } else {
-                    console.log("Invalid Guess")
+                    displayGuessData(guess)
 
                 }
 
-                if (credits === 0) {
+                if (guess !== null && goal.names.includes(guess.names)) {
+                    displayMessage("Congratulations! You got it!");
+                    userInput.value = "";
+                    win = true;
+                    return;
+                } else if (credits === 0) {
                     displayMessage(`Sorry, the correct answer was ${goal.names[0].toUpperCase()}`)
                 }
 
             }
+
+            document.getElementById("feedback").scrollTo(0, document.getElementById("feedback").scrollHeight);
 
             userInput.value = "";
         }
@@ -401,26 +565,61 @@ function clearDisplays() {
 }
 
 function checkInput(user_in) {
-    for (creature of creatures) {
-        if (!alreadyGuessed(creature)) {
-            for (c_name of creature.names) {
-                if (c_name.search(user_in) !== -1) {
-                    pastGuesses.push(creature);
-                    return {
-                        name: c_name,
-                        health: creature.health,
-                        power_level: creature.power_level,
-                        max_spawn: creature.max_spawn,
-                        favorite_moon: creature.favorite_moon,
-                        state: creature.state,
-                        location: creature.location
-                    };
+
+    user_in = user_in.replaceAll("-"," ");
+    user_in = user_in.replaceAll("_"," ");
+    user_in = user_in.replaceAll("."," ");
+
+    if (gameMode === "c") {
+
+        return checkForMatch(user_in, creatures);
+
+    } else if (gameMode === "m") {
+
+        return checkForMatch(user_in, moons);
+    
+    }
+
+    if (gameMode === "") {
+        c_match = checkForMatch(user_in, creatures);
+        m_match = checkForMatch(user_in, moons);
+
+        if (c_match !== null) {
+            gameMode = "c";
+            goal = creatures[Math.floor(Math.random() * creatures.length)];
+            return c_match;
+        } else if (m_match !== null) {
+            gameMode = "m";
+            goal = moons[Math.floor(Math.random() * moons.length)];
+            return m_match;
+        }
+    }
+
+    return null;
+}
+
+function checkForMatch(user_in, collection) {
+    for (obj of collection) {
+        if (!alreadyGuessed(obj)) {
+            for (nameCollection of obj.names) {
+                for (nameOption of nameCollection.split(" ")) {
+                    if (nameOption.search(user_in) === 0) {
+                        pastGuesses.push(obj);
+                        
+                        let newObj = obj;
+                        if (Object.hasOwn(obj, "size")) {
+                            obj.names = nameCollection.replaceAll(" ", "-")
+                        } else {
+                            obj.names = nameCollection;
+                        }
+                        return newObj;
+                    }
                 }
             }
         }
     }
 
-    return null;
+    return null
 }
 
 function alreadyGuessed(creature) {
@@ -465,6 +664,7 @@ function displayHelpMessage() {
 
 
     document.getElementById("feedback").appendChild(wrapper);
+    document.getElementById("feedback").appendChild(document.createElement("br"));
 }
 
 function displayMessage(message) {
@@ -475,6 +675,104 @@ function displayMessage(message) {
     messageElem.style.marginTop = "1.5rem"
 
     document.getElementById("feedback").appendChild(messageElem);
+
+}
+
+function displayGuessData(guess) {
+    if (gameMode === "m") {
+        displayMoonData(guess);
+    } else if (gameMode === "c") {
+        displayCreatureData(guess);
+    }
+}
+
+function displayMoonData(guess) {
+
+    // <span>
+    //     <span>Moon Name: </span>
+    //     <span>interior, </span>
+    //     <span>scrap, </span>
+    //     <span>1.00x, </span>
+    //     <span>Indoor Power: x , </span>
+    //     <span>Outdoor Power: x, </span>
+    //     <span>Indoor Enemy,  </span>
+    //     <span>Outdoor Enemy  </span>
+    // </span>
+
+    const wrapper = document.createElement("span");
+
+    const name = document.createElement("span");
+    name.textContent = `${guess.names.toLocaleUpperCase()}: `;
+    if (goal.names.includes(guess.names)) {
+        name.classList.add("correct");
+    }
+
+    const interior = document.createElement("span");
+    interior.innerText = `${guess.interior.toUpperCase()}, `;
+    if (guess.interior === goal.interior) {
+        interior.classList.add("correct");
+    }
+
+    const scrap = document.createElement("span");
+    scrap.innerText = `${guess.scrap.toUpperCase()}, `;
+    if (guess.scrap === goal.scrap) {
+        scrap.classList.add("correct");
+    }
+
+    const size = document.createElement("span");
+    size.innerText = `${guess.size}x, `;
+    if (guess.size === goal.size) {
+        size.classList.add("correct");
+    } else if (guess.size < goal.size) {
+        size.classList.add("lower");
+    } else if (guess.size > goal.size) {
+        size.classList.add("higher")
+    }
+
+    const i_power = document.createElement("span");
+    i_power.innerText = `Indoor Power: ${guess.indoor}, `;
+    if (guess.indoor === goal.indoor) {
+        i_power.classList.add("correct");
+    } else if (guess.indoor < goal.indoor) {
+        i_power.classList.add("lower");
+    } else if (guess.indoor > goal.indoor) {
+        i_power.classList.add("higher")
+    }
+
+    const e_power = document.createElement("span");
+    e_power.innerText = `Outdoor Power: ${guess.nighttime}, `;
+    if (guess.nighttime === goal.nighttime) {
+        e_power.classList.add("correct");
+    } else if (guess.nighttime < goal.nighttime) {
+        e_power.classList.add("lower");
+    } else if (guess.nighttime > goal.nighttime) {
+        e_power.classList.add("higher")
+    }
+
+    const i_enemy = document.createElement("span");
+    i_enemy.innerText = `${guess.indoor_enemy.toUpperCase()}, `;
+    if (guess.indoor_enemy === goal.indoor_enemy) {
+        i_enemy.classList.add("correct");
+    }
+
+    const e_enemy = document.createElement("span");
+    e_enemy.innerText = `${guess.outdoor_enemy.toUpperCase()}, `;
+    if (guess.outdoor_enemy === goal.outdoor_enemy) {
+        e_enemy.classList.add("correct");
+    }
+
+    wrapper.appendChild(name);
+    wrapper.appendChild(interior);
+    wrapper.appendChild(scrap);
+    wrapper.appendChild(size);
+    wrapper.appendChild(i_power);
+    wrapper.appendChild(e_power);
+    wrapper.appendChild(i_enemy);
+    wrapper.appendChild(e_enemy);
+
+    wrapper.classList.add("guess");
+
+    document.getElementById("feedback").appendChild(wrapper);
 
 }
 
@@ -493,8 +791,8 @@ function displayCreatureData(guess) {
     const wrapper = document.createElement("span");
 
     const name = document.createElement("span");
-    name.textContent = `${guess.name.toLocaleUpperCase()}: `;
-    if (goal.names.includes(guess.name)) {
+    name.textContent = `${guess.names.toUpperCase()}: `;
+    if (goal.names.includes(guess.names)) {
         name.classList.add("correct");
     }
 

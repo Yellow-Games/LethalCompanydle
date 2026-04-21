@@ -64,13 +64,12 @@ body {
 }
 
 #feedback {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    flex-wrap: wrap;
     font-size: 1.5rem;
     width: 100%;
     padding: 2em;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    height: 30vh;
 }
 
 #feedback span {
@@ -101,6 +100,12 @@ body {
 
 #feedback .partial {
     color: gold;
+}
+
+#feedback .title {
+    font-size: 2.5rem;
+    display: block;
+    padding: 1rem 0;
 }
 
 #divider {
