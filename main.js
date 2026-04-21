@@ -534,7 +534,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 }
 
-                if (guess !== null && goal.names.includes(guess.names.replaceAll("-", " "))) {
+                if (guess !== null && goal.names.includes(guess.names.replaceAll("-", "~"))) {
                     displayMessage("Congratulations! You got it!");
                     pastGuesses = [];
                     userInput.value = "";
