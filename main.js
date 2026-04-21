@@ -4,7 +4,7 @@
 
 const creatures = [
     gunkfish = {
-        names: ["backwater gunkfish", "goon fish"],
+        names: ["backwater+gunkfish", "goon+fish"],
         health: 5,
         power_level: 1,
         max_spawn: 6,
@@ -24,7 +24,7 @@ const creatures = [
     },
 
     spider = {
-        names: ["bunker spider", "spunker bider"],
+        names: ["bunker+spider", "spunker+bider"],
         health: 5,
         power_level: 2,
         max_spawn: 1,
@@ -44,7 +44,7 @@ const creatures = [
     },
 
     cadaver = {
-        names: ["cadaver growths", "cadavers"],
+        names: ["cadaver+growths", "cadavers"],
         health: Number.NaN,
         power_level: 2,
         max_spawn: 1,
@@ -54,7 +54,7 @@ const creatures = [
     },
 
     cadaverBloom = {
-        names: ["cadaver bloom"],
+        names: ["cadaver+bloom"],
         health: 4,
         power_level: 3,
         max_spawn: 8,
@@ -64,7 +64,7 @@ const creatures = [
     },
 
     coil = {
-        names: ["coilhead", "coil head"],
+        names: ["coilhead", "coil+head"],
         health: Number.NaN,
         power_level: 1,
         max_spawn: 5,
@@ -74,7 +74,7 @@ const creatures = [
     },
 
     girl = {
-        names: ["ghost girl"],
+        names: ["ghost+girl", "girl"],
         health: Number.NaN,
         power_level: 2,
         max_spawn: 1,
@@ -84,7 +84,7 @@ const creatures = [
     },
 
     lootBug = {
-        names: ["hoarding bug", "loot bug", "lootbug", "boot lug", "bootlug"],
+        names: ["hoarding+bug", "loot+bug", "lootbug", "boot+lug", "bootlug"],
         health: 3,
         power_level: 1,
         max_spawn: 8,
@@ -104,7 +104,7 @@ const creatures = [
     },
 
     jester = {
-        names: ["jester", "jack in the box"],
+        names: ["jester", "jack+in+the+box"],
         health: Number.NaN,
         power_level: 3,
         max_spawn: 1,
@@ -134,7 +134,7 @@ const creatures = [
     },
 
     nutcracker = {
-        names: ["nutcracker", "toy soilder", "crutknacker", "crut knacker", "crutnacker", "crut nacker"],
+        names: ["nutcracker", "toy+soilder", "crutknacker", "crut+knacker", "crutnacker", "crut+nacker"],
         health: 5,
         power_level: 1,
         max_spawn: 10,
@@ -144,7 +144,7 @@ const creatures = [
     },
     
     spore = {
-        names: ["spore lizard", "lore spizard"],
+        names: ["spore+lizard", "lore+spizard"],
         health: Number.NaN,
         power_level: 1,
         max_spawn: 2,
@@ -164,7 +164,7 @@ const creatures = [
     },
 
     baboonHawk = {
-        names: ["baboon hawk", "opps", "ababa", "ops"],
+        names: ["baboon+hawk", "opps", "ababa", "ops"],
         health: 4,
         power_level: 0.5,
         max_spawn: 15,
@@ -174,7 +174,7 @@ const creatures = [
     },
 
     worm = {
-        names: ["earth leviathan", "worm", "sand worm"],
+        names: ["earth+leviathan", "worm", "sand+worm"],
         health: Number.NaN,
         power_level: 2,
         max_spawn: 3,
@@ -184,7 +184,7 @@ const creatures = [
     },
 
     dogs = {
-        names: ["dog", "mouthdog", "eyeless dog"],
+        names: ["dog", "mouthdog", "eyeless+dog"],
         health: 12,
         power_level: 2,
         max_spawn: 8,
@@ -204,7 +204,7 @@ const creatures = [
     },
 
     giant = {
-        names: ["forrest keeper", "giant"],
+        names: ["forrest+keeper", "giant"],
         health: 38,
         power_level: 3,
         max_spawn: 3,
@@ -214,7 +214,7 @@ const creatures = [
     },
 
     bees = {
-        names: ["bees", "circuit bees"],
+        names: ["bees", "circuit+bees"],
         health: Number.NaN,
         power_level: 1,
         max_spawn: 6,
@@ -224,7 +224,7 @@ const creatures = [
     },
 
     bird = {
-        names: ["bird", "giant sapsucker"],
+        names: ["bird", "giant+sapsucker"],
         health: 28,
         power_level: 4,
         max_spawn: 1,
@@ -234,7 +234,7 @@ const creatures = [
     },
 
     fox = {
-        names: ["kidnapper fox"],
+        names: ["kidnapper+fox"],
         health: 7,
         power_level: 1,
         max_spawn: 1,
@@ -254,7 +254,7 @@ const creatures = [
     },
 
     locusts = {
-        names: ["roaming locusts"],
+        names: ["roaming+locusts", "locusts"],
         health: Number.NaN,
         power_level: 1,
         max_spawn: 5,
@@ -264,7 +264,7 @@ const creatures = [
     },
 
     tulipSnakes = {
-        names: ["tulip snakes"],
+        names: ["tulip+snakes"],
         health: 1,
         power_level: 0.5,
         max_spawn: 12,
@@ -274,7 +274,7 @@ const creatures = [
     },
 
     vainShroud = {
-        names: ["vain shroud"],
+        names: ["vain+shroud"],
         health: Number.NaN,
         power_level: 0,
         max_spawn: 20,
@@ -296,7 +296,7 @@ const creatures = [
     },
 
     butlerBees = {
-        names: ["butler bees", "mask hornets"],
+        names: ["butler+bees", "mask+hornets"],
         health: Number.NaN,
         power_level: 2,
         max_spawn: 7,
@@ -306,7 +306,7 @@ const creatures = [
     },
 
     oldBird = {
-        names: ["radmech", "old bird", "bold ird"],
+        names: ["radmech", "old+bird", "bold+ird", "oldbird", "boldird"],
         health: Number.NaN,
         power_level: 3,
         max_spawn: 20,
@@ -316,7 +316,7 @@ const creatures = [
     },
 
     snare = {
-        names: ["snare flea", "head worm", "flare snea"],
+        names: ["snare+flea", "head+worm", "flare+snea"],
         health: 3,
         power_level: 1,
         max_spawn: 4,
@@ -330,7 +330,7 @@ const creatures = [
 const moons = [
 
     experimentation = {
-        names: ["41 experimentation"],
+        names: ["41+experimentation", "experimentation"],
         nighttime: 8,
         indoor: 4,
         indoor_enemy: "bunker spider",
@@ -341,7 +341,7 @@ const moons = [
     },
 
     assurance = {
-        names: ["220 assurance"],
+        names: ["220+assurance", "assurance"],
         nighttime: 6,
         indoor: 8,
         indoor_enemy: "snare flea",
@@ -352,7 +352,7 @@ const moons = [
     },
 
     vow = {
-        names: ["56 vow"],
+        names: ["56+vow", "vow"],
         nighttime: 6,
         indoor: 7,
         indoor_enemy: "bracken",
@@ -363,7 +363,7 @@ const moons = [
     },
 
     march = {
-        names: ["61 march"],
+        names: ["61+march", "march"],
         nighttime: 12,
         indoor: 14,
         indoor_enemy: "thumper",
@@ -374,7 +374,7 @@ const moons = [
     },
 
     offense = {
-        names: ["21 offense"],
+        names: ["21+offense", "offense"],
         nighttime: 8,
         indoor: 12,
         indoor_enemy: "thumper",
@@ -385,7 +385,7 @@ const moons = [
     },
 
     adamance = {
-        names: ["20 adamance"],
+        names: ["20+adamance", "adamance"],
         nighttime: 11,
         indoor: 13,
         indoor_enemy: "cadaver growths",
@@ -396,7 +396,7 @@ const moons = [
     },
 
     rend = {
-        names: ["85 rend"],
+        names: ["85+rend", "rend"],
         nighttime: 6,
         indoor: 10,
         indoor_enemy: "nutcracker",
@@ -407,7 +407,7 @@ const moons = [
     },
 
     dine = {
-        names: ["7 dine"],
+        names: ["7+dine", "dine"],
         nighttime: 9,
         indoor: 10,
         indoor_enemy: "butler",
@@ -418,7 +418,7 @@ const moons = [
     },
 
     titan = {
-        names: ["8 titan"],
+        names: ["8+titan", "titan"],
         nighttime: 7,
         indoor: 18,
         indoor_enemy: "jester",
@@ -429,7 +429,7 @@ const moons = [
     },
 
     artifice = {
-        names: ["68 artifice"],
+        names: ["68+artifice", "artifice"],
         nighttime: 13,
         indoor: 13,
         indoor_enemy: "bunker spider",
@@ -440,7 +440,7 @@ const moons = [
     },
 
     embrion = {
-        names: ["5 embrion"],
+        names: ["5+embrion", "embrion"],
         nighttime: 70,
         indoor: 8,
         indoor_enemy: "hoarding bug",
@@ -451,7 +451,7 @@ const moons = [
     },
 
     gordian = {
-        names: ["71 gordian", "company"],
+        names: ["71+gordian", "gordian", "company"],
         nighttime: 0,
         indoor: 0,
         indoor_enemy: "n/a",
@@ -462,7 +462,7 @@ const moons = [
     },
 
     liquidation = {
-        names: ["44 liquidation"],
+        names: ["44+liquidation", "liquidation"],
         nighttime: 13,
         indoor: 13,
         indoor_enemy: "n/a",
@@ -579,6 +579,7 @@ function checkInput(user_in) {
     user_in = user_in.replaceAll("-"," ");
     user_in = user_in.replaceAll("_"," ");
     user_in = user_in.replaceAll("."," ");
+    user_in = user_in.replaceAll(" ", "+");
 
     if (gameMode === "c") {
 
@@ -613,12 +614,12 @@ function checkForMatch(user_in, collection) {
         if (!alreadyGuessed(obj)) {
             for (nameCollection of obj.names) {
                 for (nameOption of nameCollection.split(" ")) {
-                    if (nameOption.search(user_in) === 0) {
+                    if (nameOption.search(user_in) === 0 || nameOption === user_in) {
                         pastGuesses.push(obj);
                         
                         if (Object.hasOwn(obj, "size")) { // Moon
                             return {
-                                names: nameCollection.replaceAll(" ", "-"),
+                                names: nameCollection.replaceAll("+", "-"),
                                 nighttime: obj.nighttime,
                                 indoor: obj.indoor,
                                 indoor_enemy: obj.indoor_enemy,
@@ -629,7 +630,7 @@ function checkForMatch(user_in, collection) {
                             };
                         } else if (Object.hasOwn(obj, "health")) { // Creature
                             return {
-                                names: nameCollection,
+                                names: nameCollection.replaceAll("+", " "),
                                 health: obj.health,
                                 power_level: obj.power_level,
                                 max_spawn: obj.max_spawn,
@@ -730,7 +731,7 @@ function displayMoonData(guess) {
 
     const name = document.createElement("span");
     name.textContent = `${guess.names.toLocaleUpperCase()}: `;
-    if (goal.names.includes(guess.names.replaceAll("-", " "))) {
+    if (goal.names.includes(guess.names.replaceAll("-", "+"))) {
         name.classList.add("correct");
     }
 
