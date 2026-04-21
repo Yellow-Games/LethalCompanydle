@@ -493,6 +493,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     userInput.addEventListener("keypress", (event) => {
 
         if (event.key == "Enter") {
+            console.log(pastGuesses);
 
             if (document.getElementById("intro") !== null) {
                 clearDisplays()
@@ -533,13 +534,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 }
 
-                if (guess !== null && goal.names.includes(guess.names)) {
+                if (guess !== null && goal.names.includes(guess.names.replaceAll("-", " "))) {
                     displayMessage("Congratulations! You got it!");
                     pastGuesses = [];
                     userInput.value = "";
                     win = true;
                     goal = "";
                     gameMode = "";
+                    document.getElementById("feedback").scrollTo(0, document.getElementById("feedback").scrollHeight);
                     return;
                 } else if (credits === 0) {
                     displayMessage(`Sorry, the correct answer was ${goal.names[0].toUpperCase()}`);
@@ -614,16 +616,33 @@ function checkForMatch(user_in, collection) {
                     if (nameOption.search(user_in) === 0) {
                         pastGuesses.push(obj);
                         
-                        let newObj = obj;
-                        if (Object.hasOwn(obj, "size")) {
-                            obj.names = nameCollection.replaceAll(" ", "-")
-                        } else {
-                            obj.names = nameCollection;
+                        if (Object.hasOwn(obj, "size")) { // Moon
+                            return {
+                                names: nameCollection.replaceAll(" ", "-"),
+                                nighttime: obj.nighttime,
+                                indoor: obj.indoor,
+                                indoor_enemy: obj.indoor_enemy,
+                                outdoor_enemy: obj.outdoor_enemy,
+                                scrap: obj.scrap,
+                                interior: obj.interior,
+                                size: obj.size
+                            };
+                        } else if (Object.hasOwn(obj, "health")) { // Creature
+                            return {
+                                names: nameCollection,
+                                health: obj.health,
+                                power_level: obj.power_level,
+                                max_spawn: obj.max_spawn,
+                                favorite_moon: obj.favorite_moon,
+                                state: obj.state,
+                                location: obj.location
+                            };
                         }
-                        return newObj;
                     }
                 }
             }
+        } else {
+            console.log("aready guessed");
         }
     }
 
@@ -711,7 +730,7 @@ function displayMoonData(guess) {
 
     const name = document.createElement("span");
     name.textContent = `${guess.names.toLocaleUpperCase()}: `;
-    if (goal.names.includes(guess.names)) {
+    if (goal.names.includes(guess.names.replaceAll("-", " "))) {
         name.classList.add("correct");
     }
 
